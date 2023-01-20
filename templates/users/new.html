@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Add A User{% endblock %}
+
+{% block content %}
+<div class='main-container'>
+    <div class='form-card'>
+        <h1>Create A User:</h1>
+        <form action='/users/new' method='POST'>
+            <label for='first_name'>First name</label><br>
+            <input type='text' id='first_name' class='input-fields' name='first-name'
+                placeholder='Enter a first name'><br>
+            <label for='last_name'>Last name</label><br>
+            <input type='text' id='last_name' class='input-fields' name='last-name' placeholder='Enter a last name'><br>
+            <label for='img_url'>Image URL</label><br>
+            <input type='text' id='img_url' class='input-fields' name='img-url'
+                placeholder='Provide an image for this user'><br>
+            <button type='submit' class='button-link'>Add</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

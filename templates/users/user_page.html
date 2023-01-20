@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}User Page{% endblock %}
+
+{% block content %}
+<div class='main-container'>
+    <div class='form-card'>
+        <div class='user-profile-card'>
+            {% if user.image_url %}
+            <img class='profile-pic' src='{{ user.image_url }}' alt="profile picture">
+            {% else %}
+            <img class='profile-pic' src='/static/profile.jpg' alt="profile picture">
+            {% endif %}
+            <h2 class='user-full-name'>{{ user.first_name }} {{ user.last_name }}</h2>
+            <a href='/users/{{user.id}}/edit'>
+                <div class='button-link-user-edit' role="button">Edit</div>
+            </a>
+            <a href='/users/{{user.id}}/delete'>
+                <div class='button-link-user-delete' role="button">Delete</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

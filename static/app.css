@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #6D67E4;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ------------------------------------------Navbar----------------------------------- */
+.navbar {
+    background-color: #453C67;
+    padding: 20px 0px 20px 40px;
+}
+
+.navlinks {
+    margin: 0;
+    padding: 21px;
+    color: #F0F5F9;
+    font-size: 1.5rem;
+    border: none;
+}
+
+.navlinks:hover {
+    background-color: #8D72E1;
+}
+
+.user_nav {
+    float: right;
+}
+
+.signup {
+    margin: 0;
+    padding: 21px 30px 21px 30px;
+    border: none;
+    background-color: #FFFFFF;
+    color: black;
+    font-size: 1.5rem;
+}
+
+.signup:hover {
+    background-color: #8D72E1;
+    color: #F0F5F9;
+}
+
+/* ------------------------------------------Main container----------------------------------- */
+
+.main {
+    margin: 50px 100px;
+
+}
+
+.user-profile-card {
+    display: grid;
+    grid-template-areas:
+        "area-1 area-2 area-2"
+        "area-1 area-3 area-4";
+    width: 300px;
+}
+
+.profile-pic {
+    display: flex;
+    width: 150px;
+    grid-area: area-1;
+}
+
+.user-full-name {
+    display: flex;
+    grid-area: area-2;
+}
+
+.button-link-user-edit {
+    display: flex;
+    grid-area: area-3;
+    display: block;
+    width: 50px;
+    padding: 5px 0px;
+    background-color: #2c70ee;
+    text-align: center;
+    color: #F0F5F9;
+}
+
+.button-link-user-delete {
+    display: flex;
+    grid-area: area-4;
+    display: block;
+    margin-left: 10px;
+    width: 50px;
+    padding: 5px 5px;
+    background-color: #df4c4c;
+    text-align: center;
+    color: #F0F5F9;
+}
+
+/* ------------------------------------------BUTTON Links----------------------------------- */
+.button-link {
+    margin-top: 30px;
+    width: 150px;
+    padding: 10px;
+    background-color: #439da3;
+    text-align: center;
+    color: #F0F5F9;
+    border: none;
+    font-size: 1rem;
+}
+
+.button-link:hover {
+    background-color: #159ba5;
+}
+
+.button-link-user-cancel {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+    padding: 10px 0px;
+    background-color: #52616B;
+    text-align: center;
+    color: #F0F5F9;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-card {
+    margin-top: 80px;
+    width: 350px;
+    max-width: 350px;
+    height: 450px;
+    background: #FFFFFF;
+    box-shadow: -3px -3px 10px rgba(0, 0, 0, 0.1), 4px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.input-fields {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+.profile-pic {
+    margin: 20px;
+}

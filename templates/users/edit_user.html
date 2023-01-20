@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit A User{% endblock %}
+
+{% block content %}
+<div class='main-container'>
+    <div class='form-card'>
+        <h1>Create A User:</h1>
+        <form action='/users/{{user.id}}/edit' method='POST'>
+            <label for='edit_first_name'>First name</label><br>
+            <input type='text' id='edit_first_name' class='input-fields' name='first-name'
+                value='{{user.first_name}}'><br>
+            <label for='edit_last_name'>Last name</label><br>
+            <input type='text' id='edit_last_name' class='input-fields' name='last-name' value='{{user.last_name}}'><br>
+            <label for='edit_img_url'>Image URL</label><br>
+            <input type='text' id='edit_img_url' class='input-fields' name='img-url' value='{{user.image_url}}'><br>
+            <button type='submit' class='button-link'>Save</button>
+            <a href='/users/{{user.id}}'>
+                <div class='button-link-user-cancel' role="button">Cancel</div>
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}
