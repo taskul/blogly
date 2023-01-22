@@ -19,3 +19,7 @@ class Users(db.Model):
     def __repr__(self):
         """Showing information about user"""
         return f"<Users {self.id} {self.first_name} {self.last_name}>"
+
+class Post(db.Model):
+    __tablename__ = 'post'
+    
