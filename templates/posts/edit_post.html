@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+<div class='main-container'>
+    <div class='post-card'>
+        <h1>Create a new post:</h1>
+        <p class='small-username'><small>User {{ user.first_name }} {{ user.last_name }}</small></p>
+        <form action='/posts/{{post.id}}/edit' method='POST'>
+            <label for='post-title'>Title</label><br>
+            <input type='text' id='post-title' name='title' value='{{post.title}}'><br>
+            <label for='post-content'>Content</label><br>
+            <textarea id='post-content' name='content'>{{post.content}}</textarea>    
+            <br>
+            <button type='submit' class='button-link'>Save</button>
+            <a href='/posts/{{post.id}}'>
+                <div class='button-link-user-cancel' role="button">Cancel</div>
+            </a>
+        </form>
+    </div>
+</div>
+{% endblock %}

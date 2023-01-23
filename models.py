@@ -22,4 +22,8 @@ class Users(db.Model):
 
 class Post(db.Model):
     __tablename__ = 'post'
-    
+    id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
+    title = db.Column(db.String(100))
+    content = db.Column(db.Text)
+    create_at = db.Column(db.String())
+    user_id = db.Column(db.Text, db.ForeignKey('Users.id'))
