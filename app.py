@@ -67,7 +67,7 @@ def serve_404(e):
 def show_user_page(user_id):
     """Show user profile page"""
     user = Users.query.get_or_404(user_id)
-    posts = Post.query.filter(Post.user_id == user.id)
+    posts = Post.query.filter(Post.user_id == user.id).order_by(Post.create_at.desc())
     return render_template("users/user_page.html", user=user, posts=posts)
 
 
