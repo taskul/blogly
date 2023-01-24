@@ -3,6 +3,25 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    
+<div class='multi-post-container'>
+    <h2>New Posts:</h2>
+    {% for post in posts %}
+    <a href='/posts/{{post.id}}'>
+        <div class="multi-post-container">
+            <h3>{{ post.title[0:50] }}</h3>
+            <p>
+                <i><small>Created on: {{ post.create_at }}</small></Created></i>
+                {% if post.last_edited %}
+                <i><small class="light-gray-text">Last edited on: {{ post.last_edited}}</small></i>
+                {% endif %}
+            </p>
+            <p>
+                {{ post.content[0:250] }}
+            </p>
+        </div>
+    </a>
+    {% endfor %}
+
+</div>
 
 {% endblock %}

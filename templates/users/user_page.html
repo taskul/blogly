@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class='main-container'>
-    <div class='user-profile-container'>
+    <div class='multi-post-container'>
         <div class='user-profile-card'>
             {% if user.image_url %}
             <img class='profile-pic' src='{{ user.image_url }}' alt="profile picture">
@@ -20,26 +20,30 @@
             </a>
         </div>
         <div class='profile-posts-headers'>
-            <a href='/users/{{user.id}}/posts/new'><div class='button-link' role="button">Add Post</div></a>
+            <a href='/users/{{user.id}}/posts/new'>
+                <div class='button-link' role="button">Add Post</div>
+            </a>
             <h3>Posts</h3>
         </div>
 
-            {% if posts %}
-                <ul class='user-posts'>
-                    {% for post in posts %}
-                    <div class='user-profile-container'>
-                        <li>
-                            <h4><a href='/posts/{{post.id}}'>{{ post.title[0:30] }}...</a></h4>
-                            <span><small><b>Author: {{user.first_name}} {{user.last_name}}</b></small></span>
-                            <i><small>Created on: {{ post.create_at }}</small></i>
-                            <p>{{ post.content[0:250]}}</p>
-                        </li>
-                    </div>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>This user has not created any posts</p>
-            {% endif %}
+        {% if posts %}
+        <ul class='user-posts'>
+            {% for post in posts %}
+            <a href='/posts/{{post.id}}'>
+                <div class='multi-post-container'>
+                    <li>
+                        <h4>{{ post.title[0:30] }}...</h4>
+                        <span><small><b>Author: {{user.first_name}} {{user.last_name}}</b></small></span>
+                        <i><small>Created on: {{ post.create_at }}</small></i>
+                        <p>{{ post.content[0:250]}}</p>
+                    </li>
+                </div>
+            </a>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>This user has not created any posts</p>
+        {% endif %}
     </div>
 </div>
 

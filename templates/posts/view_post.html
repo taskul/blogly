@@ -6,18 +6,18 @@
 <div class='main-container'>
     <div class='post-card'>
         <h2>{{post.title}}</h2>
-        <p>by {{ user.first_name}} {{ user.last_name }} 
-            <i>Created on: {{ post.create_at }}</i>
+        <p>by <a href='/users/{{ user.id }}'><b>{{ user.first_name}} {{ user.last_name }}</b></a>
+            <i><small>Created on: {{ post.create_at }}</small></Created></i>
         </p>
         <p>{{post.content}}</p>
         <div class='post-controls'>
-            <a href='/users/{{user.id}}'>
+            <a href='/users/{{ user.id }}'>
                 <div class='button-link-user-cancel button-inline' role="button">Cancel</div>
             </a>
             <a href='/posts/{{post.id}}/edit'>
                 <div class='button-link-user-edit button-inline button-large' role="button">Edit</div>
             </a>
-            <a href='/users/{{user.id}}'>
+            <a href='/posts/{{post.id}}/delete'>
                 <div class='button-link-user-delete button-inline button-large' role="button">Delete</div>
             </a>
         </div>

@@ -10,6 +10,10 @@ a {
     text-decoration: none;
 }
 
+.light-gray-text {
+    color: darkgray;
+}
+
 /* ------------------------------------------Navbar----------------------------------- */
 .navbar {
     background-color: #453C67;
@@ -52,19 +56,7 @@ a {
     margin: 50px 100px;
 
 }
-.user-profile-container{
-    margin-top: 20px;
-    width: fit-content;
-    block-size: fit-content;
-    width: 80%;
-    max-width: 80%;
-    height: 50%;
-    padding: 30px;
-    background: #FFFFFF;
-    box-shadow: -3px -3px 10px rgba(0, 0, 0, 0.1), 4px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    text-align: left;
-}
+
 .user-profile-card {
     display: grid;
     grid-template-areas:
@@ -84,6 +76,28 @@ a {
 .user-full-name {
     display: flex;
     grid-area: area-2;
+}
+
+
+.form-card {
+    margin-top: 20px;
+    width: 350px;
+    max-width: 350px;
+    height: 450px;
+    background: #FFFFFF;
+    box-shadow: -3px -3px 10px rgba(0, 0, 0, 0.1), 4px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.input-fields {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+.profile-pic {
+    margin: 20px;
 }
 
 .button-link-user-edit {
@@ -111,6 +125,7 @@ a {
     padding: 5px 10px;
     margin: 5px;
 }
+
 .button-large {
     width: 150px;
     padding: 10px 0px;
@@ -127,7 +142,8 @@ a {
     color: #F0F5F9;
     border: none;
     font-size: 1rem;
-    border: #439da3 solid 2px;;
+    border: #439da3 solid 2px;
+    ;
 }
 
 .button-link:hover {
@@ -153,34 +169,28 @@ a {
     display: inline-block;
 }
 
+
+/* ---------------------------------------POSTS--------------------------- */
 .main-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.form-card {
+.multi-post-container {
     margin-top: 20px;
-    width: 350px;
-    max-width: 350px;
-    height: 450px;
+    width: fit-content;
+    block-size: fit-content;
+    width: 80%;
+    max-width: 80%;
+    height: 50%;
+    padding: 30px;
     background: #FFFFFF;
     box-shadow: -3px -3px 10px rgba(0, 0, 0, 0.1), 4px 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    text-align: center;
+    text-align: left;
 }
 
-.input-fields {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-}
-
-.profile-pic {
-    margin: 20px;
-}
-
-/* ---------------------------------------POSTS--------------------------- */
 .post-form-card {
     margin-top: 20px;
     width: fit-content;
@@ -200,7 +210,7 @@ a {
     padding: 12px 20px;
     margin: 8px 0;
     resize: none;
-    text-align:left;
+    text-align: left;
 }
 
 .small-username {
@@ -208,6 +218,7 @@ a {
     margin-bottom: 10px;
     font-size: 0.8rem;
 }
+
 #post-title {
     width: 80%;
     padding: 12px 20px;
