@@ -11,6 +11,7 @@ def connect_db(app):
 
 
 class Users(db.Model):
+    '''Users model '''
     __tablename__ = "Users"
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     first_name = db.Column(db.String(50), nullable=False)
@@ -35,7 +36,31 @@ class Post(db.Model):
     create_at = db.Column(db.DateTime, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey("Users.id"), nullable=False)
 
+    tag = db.relationship('Tag', secondary='post_tags', backref='posts')
+
     @property
     def friendly_date(self):
         """Return nicely-formatted date."""
         return self.create_at.strftime("%a %b %-d  %Y, %-I:%M %p")
+
+    def __repr__(self):
+        """Showing information about post"""
+        return f"<Post {self.id} {self.title} {self.content} {self.create_at} {self.user_id}>"
+
+class Tag(db.Model):
+    __tablename__ = 'tags'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(20), unique=True)
+
+    def __repr__(self):
+        """Showing information about tag"""
+        return f"<Tag {self.id} {self.name}>"
+
+class PostTag(db.Model):
+    __tablename__ = 'post_tags'
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'), primary_key=True)
+    tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key=True)
+
+    def __repr__(self):
+        """Showing information about user"""
+        return f"<PostTag {self.post_id} {self.tag_id}>"

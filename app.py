@@ -1,7 +1,7 @@
 """Blogly application."""
 from flask import Flask, render_template, redirect, request
 from flask_debugtoolbar import DebugToolbarExtension
-from models import db, connect_db, Users, Post
+from models import db, connect_db, Users, Post, Tag, PostTag
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///blogly.db"
@@ -123,6 +123,13 @@ def create_new_post(user_id):
             user_id=user_id,
         )
         db.session.add(new_post)
+        # getting a list of tags
+        tags = request.form.getlist('tags')
+        for tag in tags:
+            if not Tag.query.filter(Tag.name == tag):
+                new_tag = Tag(name=tag)
+                db.session.add(new_tag)
+            post_tag = PostTag()
         db.session.commit()
         return redirect(f"/users/{user_id}")
     return redirect(f"/users/{user_id}/posts/new")

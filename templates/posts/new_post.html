@@ -13,6 +13,12 @@
             <label for='post-content'>Content</label><br>
             <textarea id='post-content' name='content'></textarea>    
             <br>
+            <label for='post-tags'>Tags:</label>
+            <input type='text' id='post-tags' name='tags'>
+            <br>
+            <div class="tag-container">
+            </div>
+            <br>
             <button type='submit' class='button-link'>Add</button>
             <a href='/users/{{user.id}}'>
                 <div class='button-link-user-cancel' role="button">Cancel</div>
