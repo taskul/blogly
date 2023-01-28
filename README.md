@@ -5,17 +5,17 @@
 ## Working Features
 **Home page**
 - viewing 10 most recent posts sorted by date of creation
-- 
+
 **Users management**
 - view all users (through Sign Up link)
 - add new users
-- 
+
 **User page**
 - edit existing user
 - delete existing user
 - add new posts
 - view user posts
-- 
+
 **Post CRUD**
 - creating new post with title, content and tags
 - view post with tags included
