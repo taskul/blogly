@@ -2,15 +2,25 @@
 
 ## Blogly is a work in progress. This is only part one of the blogly project.
 
-**Working Features**
-- view all users
+## Working Features
+**Home page**
+- viewing 10 most recent posts sorted by date of creation
+**Users management**
+- view all users (through Sign Up link)
 - add new users
-- edit existing users
-- delete existing users
+**User page**
+- edit existing user
+- delete existing user
+- add new posts
+- view user posts
+**Post CRUD**
+- creating new post with title, content and tags
+- view post with tags included
+- edit post
+- delete post
 
 **Features that are not working (coming soon)**
 - Loging/Sign up
-- Making actual blog posts.
 
 ### How to get started with Blogly blog
 1. Download the zip file and extract the contents.
