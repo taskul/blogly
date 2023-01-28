@@ -9,6 +9,14 @@
         <p>by <a href='/users/{{ user.id }}'><b>{{ user.first_name}} {{ user.last_name }}</b></a>
             <i><small>Created on: {{ post.create_at }}</small></Created></i>
         </p>
+        <div class="tag-container">
+            <span class="tags-label">Tags:</span>
+            {% if post_tags %}
+            {% for post_tag in post_tags %}
+            <p class="post-tag-view-only">{{ post_tag.name }}</p>
+            {% endfor %}
+            {% endif %}
+        </div>
         <p>{{post.content}}</p>
         <div class='post-controls'>
             <a href='/users/{{ user.id }}'>
@@ -21,6 +29,7 @@
                 <div class='button-link-user-delete button-inline button-large' role="button">Delete</div>
             </a>
         </div>
+
     </div>
 </div>
 {% endblock %}

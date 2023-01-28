@@ -18,6 +18,14 @@
             <p>
                 {{ post.content[0:250] }}
             </p>
+            <div class="tag-container">
+                <span class="tags-label">Tags:</span>
+                {% if post.tag %}
+                {% for tags in post.tag %}
+                <p class="post-tag-view-only">{{ tags.name }}</p>
+                {% endfor %}
+                {% endif %}
+            </div>
         </div>
     </a>
     {% endfor %}

@@ -11,10 +11,16 @@
             <label for='post-title'>Title</label><br>
             <input type='text' id='post-title' name='title'><br>
             <label for='post-content'>Content</label><br>
-            <textarea id='post-content' name='content'></textarea>    
-            <br>
-            <label for='post-tags'>Tags:</label>
-            <input type='text' id='post-tags' name='tags'>
+            <textarea id='post-content' name='content'></textarea>
+            <div class="user-messages">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
             <br>
             <div class="tag-container">
             </div>
@@ -23,6 +29,10 @@
             <a href='/users/{{user.id}}'>
                 <div class='button-link-user-cancel' role="button">Cancel</div>
             </a>
+        </form>
+        <form class="tags-input-form">
+            <label for='post-tags'>Tags:</label>
+            <input type='text' id='post-tags' minlength="2" maxlength="20" name="tags">
         </form>
     </div>
 </div>

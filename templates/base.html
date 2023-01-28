@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,22 @@
     <link rel='stylesheet' href='/static/app.css'>
     <title>{% block title %}Blogly{% endblock %}</title>
 </head>
+
 <body>
     <nav class='navbar'>
         <a href='/' class='navlinks'>Home</a>
         <div class='user_nav'>
             <a href='/login' class='navlinks'>Login</a>
-            <a href='/signup' class='signup'>Sign Up</a>
+            <a href='/users' class='signup'>Sign Up</a>
         </div>
     </nav>
 
     <div class='main'>
-    {% block content %}
+        {% block content %}
 
-    {% endblock %}
+        {% endblock %}
     </div>
-    
+    <script src="/static/app.js"></script>
 </body>
+
 </html>

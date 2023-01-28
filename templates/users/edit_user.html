@@ -14,6 +14,15 @@
             <input type='text' id='edit_last_name' class='input-fields' name='last-name' value='{{user.last_name}}'><br>
             <label for='edit_img_url'>Image URL</label><br>
             <input type='text' id='edit_img_url' class='input-fields' name='img-url' value='{{user.image_url}}'><br>
+            <div class="user-messages">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
             <button type='submit' class='button-link'>Save</button>
             <a href='/users/{{user.id}}'>
                 <div class='button-link-user-cancel button-center' role="button">Cancel</div>

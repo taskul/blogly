@@ -13,10 +13,26 @@
             <label for='post-content'>Content</label><br>
             <textarea id='post-content' name='content'>{{post.content}}</textarea>
             <br>
+            <div class="tag-container">
+                {% if post_tags %}
+                {% for post_tag in post_tags %}
+                <label class="tag">
+                    {{ post_tag.name }}
+                    <input type="checkbox" class="tag-checkbox" value="{{post_tag.name}}" checked="checked" name="tags">
+                    <span class="delete-tag">X</span>
+                </label>
+                {% endfor %}
+                {% endif %}
+            </div>
+            <br>
             <button type='submit' class='button-link'>Save</button>
             <a href='/posts/{{post.id}}'>
                 <div class='button-link-user-cancel' role="button">Cancel</div>
             </a>
+        </form>
+        <form class="tags-input-form">
+            <label for='post-tags'>Tags:</label>
+            <input type='text' id='post-tags' minlength="2" maxlength="20">
         </form>
     </div>
 </div>

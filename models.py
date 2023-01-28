@@ -11,7 +11,8 @@ def connect_db(app):
 
 
 class Users(db.Model):
-    '''Users model '''
+    """Users model for blog post users"""
+
     __tablename__ = "Users"
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     first_name = db.Column(db.String(50), nullable=False)
@@ -29,6 +30,8 @@ class Users(db.Model):
 
 
 class Post(db.Model):
+    """Blog post"""
+
     __tablename__ = "post"
     id = db.Column(db.Integer(), primary_key=True, autoincrement=True)
     title = db.Column(db.String(100))
@@ -36,7 +39,8 @@ class Post(db.Model):
     create_at = db.Column(db.DateTime, default=datetime.now)
     user_id = db.Column(db.Integer, db.ForeignKey("Users.id"), nullable=False)
 
-    tag = db.relationship('Tag', secondary='post_tags', backref='posts')
+    tag = db.relationship("Tag", secondary="post_tags", backref="posts")
+    post_tags = db.relationship("PostTag", backref="post", cascade="all, delete-orphan")
 
     @property
     def friendly_date(self):
@@ -47,8 +51,11 @@ class Post(db.Model):
         """Showing information about post"""
         return f"<Post {self.id} {self.title} {self.content} {self.create_at} {self.user_id}>"
 
+
 class Tag(db.Model):
-    __tablename__ = 'tags'
+    """Tag that can be added to a post"""
+
+    __tablename__ = "tags"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(20), unique=True)
 
@@ -56,10 +63,13 @@ class Tag(db.Model):
         """Showing information about tag"""
         return f"<Tag {self.id} {self.name}>"
 
+
 class PostTag(db.Model):
-    __tablename__ = 'post_tags'
-    post_id = db.Column(db.Integer, db.ForeignKey('post.id'), primary_key=True)
-    tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key=True)
+    """Tag on a post"""
+
+    __tablename__ = "post_tags"
+    post_id = db.Column(db.Integer, db.ForeignKey("post.id"), primary_key=True)
+    tag_id = db.Column(db.Integer, db.ForeignKey("tags.id"), primary_key=True)
 
     def __repr__(self):
         """Showing information about user"""

@@ -50,6 +50,34 @@ a {
     color: #F0F5F9;
 }
 
+/* ------------------------------------------Form messages----------------------------------- */
+.user-messages {
+    display: inline-block;
+    text-align: center;
+    padding: 0px;
+    width: 70%;
+    height: 14px;
+    border: none;
+    margin: 0px;
+}
+
+.error {
+    display: inline-block;
+    width: 70%;
+    margin: 0px;
+    background-color: #b76767;
+    color: white;
+    font-size: 0.7rem;
+}
+
+.success {
+    display: inline-block;
+    margin: 0px;
+    background-color: #519247;
+    color: white;
+    font-size: 0.7rem;
+}
+
 /* ------------------------------------------User profile----------------------------------- */
 
 .main {
@@ -83,7 +111,7 @@ a {
     margin-top: 20px;
     width: 350px;
     max-width: 350px;
-    height: 450px;
+    height: 470px;
     background: #FFFFFF;
     box-shadow: -3px -3px 10px rgba(0, 0, 0, 0.1), 4px 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -242,4 +270,57 @@ a {
 
 .profile-posts-headers {
     margin-left: 50px;
+}
+
+/* ---------------------------------------POST TAGS--------------------------- */
+.tag {
+    background-color: #6D67E4;
+    color: white;
+    pointer-events: none;
+    padding: 3px 5px;
+    margin: 2px 3px;
+}
+
+.post-tag-view-only {
+    display: inline-block;
+    background-color: #6D67E4;
+    color: white;
+    pointer-events: none;
+    padding: 3px 5px;
+    margin: 2px 1px;
+    font-size: 0.7rem;
+}
+
+.delete-tag {
+    position: relative;
+    left: 5px;
+    pointer-events: all;
+    display: inline-block;
+    cursor: pointer;
+    padding: 2px 5px;
+    background-color: #302e38;
+}
+
+.tag-checkbox {
+    visibility: hidden;
+    pointer-events: none;
+    display: none
+}
+
+.tags-input-form {
+    position: relative;
+    bottom: 90px;
+    left: 170px;
+}
+
+.tag-container {
+    width: 80%;
+}
+
+.tags-label {
+    color: #453C67;
+    font-weight: bold;
+    padding: 3px 5px;
+    margin: 2px 1px;
+    font-size: 0.8rem;
 }

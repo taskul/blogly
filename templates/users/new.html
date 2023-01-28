@@ -15,6 +15,15 @@
             <label for='img_url'>Image URL</label><br>
             <input type='text' id='img_url' class='input-fields' name='img-url'
                 placeholder='Provide an image for this user'><br>
+            <div class="user-messages">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
             <button type='submit' class='button-link'>Add</button>
         </form>
     </div>

@@ -27,20 +27,24 @@
         </div>
 
         {% if posts %}
-        <ul class='user-posts'>
-            {% for post in posts %}
-            <a href='/posts/{{post.id}}'>
-                <div class='multi-post-container'>
-                    <li>
-                        <h4>{{ post.title[0:30] }}...</h4>
-                        <span><small><b>Author: {{user.first_name}} {{user.last_name}}</b></small></span>
-                        <i><small>Created on: {{ post.create_at }}</small></i>
-                        <p>{{ post.content[0:250]}}</p>
-                    </li>
+        {% for post in posts %}
+        <a href='/posts/{{post.id}}'>
+            <div class='multi-post-container'>
+                <h4>{{ post.title[0:30] }}...</h4>
+                <span><small><b>Author: {{user.first_name}} {{user.last_name}}</b></small></span>
+                <i><small>Created on: {{ post.create_at }}</small></i>
+                <p>{{ post.content[0:250]}}</p>
+                <div class="tag-container">
+                    <span class="tags-label">Tags:</span>
+                    {% if post.tag %}
+                    {% for tags in post.tag %}
+                    <p class="post-tag-view-only">{{ tags.name }}</p>
+                    {% endfor %}
+                    {% endif %}
                 </div>
-            </a>
-            {% endfor %}
-        </ul>
+            </div>
+        </a>
+        {% endfor %}
         {% else %}
         <p>This user has not created any posts</p>
         {% endif %}
