@@ -1,6 +1,7 @@
 tagsInput = document.querySelector('#post-tags')
 tagsContainer = document.querySelector('.tag-container')
 tagsForm = document.querySelector('.tags-input-form')
+tagsDeleteButton = document.querySelectorAll('.delete-tag')
 
 tagsForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -24,8 +25,11 @@ tagsForm.addEventListener('submit', (e) => {
     };
 });
 
-tagsContainer.addEventListener('click', (e) => {
+tagsContainer.addEventListener('click', async (e) => {
     if (e.target.tagName == 'SPAN') {
-        e.target.parentElement.remove();
+        let tag_id = e.target.getAttribute("data-tag_id")
+        let post_id = e.target.getAttribute("data-post_id")
+        await fetch('/posts/' + post_id + '/delete/' + tag_id, { method: 'DELETE' })
+        e.target.parentElement.remove()
     }
 })

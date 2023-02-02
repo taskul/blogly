@@ -19,7 +19,7 @@
                 <label class="tag">
                     {{ post_tag.name }}
                     <input type="checkbox" class="tag-checkbox" value="{{post_tag.name}}" checked="checked" name="tags">
-                    <span class="delete-tag">X</span>
+                    <span class="delete-tag" data-tag_id="{{post_tag.id}}" data-post_id="{{post.id}}">X</span>
                 </label>
                 {% endfor %}
                 {% endif %}

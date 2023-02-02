@@ -1,5 +1,5 @@
 """Blogly application."""
-from flask import Flask, render_template, redirect, request, flash
+from flask import Flask, render_template, redirect, request, flash, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Users, Post, Tag, PostTag
 
@@ -217,7 +217,17 @@ def save_edited_post(post_id):
         return redirect(f"/posts/{post_id}")
 
 
-@app.route("/posts/<int:post_id>/delete")
+@app.route("/posts/<int:post_id>/delete/<int:tag_id>", methods=["DELETE"])
+def delete_post_tag(post_id, tag_id):
+    tag_to_delete = PostTag.query.filter(
+        PostTag.post_id == post_id, PostTag.tag_id == tag_id
+    ).first()
+    db.session.delete(tag_to_delete)
+    db.session.commit()
+    return jsonify(message="tag has been deleted from a post")
+
+
+@app.route("/posts/<int:post_id>/delete", methods=["DELETE"])
 def delete_post(post_id):
     """Handle deleting the post request"""
     post = Post.query.get_or_404(post_id)
